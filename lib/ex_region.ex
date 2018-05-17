@@ -14,11 +14,11 @@ defmodule ExRegion do
   [debian-iso]: https://salsa.debian.org/iso-codes-team/iso-codes
   """
 
-  @base_path "/usr/share/iso-codes/json/"
-
   defmacro __using__(opts) do
+    base_path = Application.app_dir(:ex_region, "priv")
+
     iso_data_filename = Keyword.fetch!(opts, :iso_data)
-    iso_data_filepath = Path.join(@base_path, [iso_data_filename, ".", "json"])
+    iso_data_filepath = Path.join(base_path, [iso_data_filename, ".", "json"])
 
     quote do
       def load, do: File.read(unquote(iso_data_filepath))
