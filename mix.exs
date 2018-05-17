@@ -22,6 +22,7 @@ defmodule ExRegion.MixProject do
   defp deps do
     [
       {:jason, "~> 1.0"},
+      {:poison, "~> 3.1"},
       {:credo, "~> 0.9.1", only: [:dev, :test]}
     ]
   end
